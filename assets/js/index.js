@@ -18,7 +18,6 @@ function getUserInfo() {
         type: "GET",
         url: '/my/userinfo',
         success: function (res) {
-            console.log(res);
             if (res.status !== 0) {
                 return layui.layer.msg(res.message)
             }
@@ -29,7 +28,8 @@ function getUserInfo() {
 }
 
 function renderAvatar(user) {
-    const name = user.username || user.nackname;
+    // debugger
+    const name = user.nickname || user.username;
     $("#welcome").html('欢迎' + name)
     if (user.user_pic) {
         $(".layui-nav-img").attr('src', user.user_pic).show();
